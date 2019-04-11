@@ -1,36 +1,25 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import file.FileUtil;
 
 public class Modifier {
-	private static String root = "D:/Documents/Tencent Files/364499854/FileRecv/MonItems/MonItems/";
-	private static String goodsFile = "D:/Documents/Tencent Files/364499854/FileRecv/物品名称.txt";
-	private static String mapDataFile = "D:/Documents/Tencent Files/364499854/FileRecv/地图数据.txt";
+	private static String root = "C:/Users/Administrator/Desktop/开服资料/风云合击/MonItems/MonItems/";
+	private static String goodsFile = "C:/Users/Administrator/Desktop/开服资料/风云合击/物品名称.txt";
+	private static String mapDataFile = "C:/Users/Administrator/Desktop/开服资料/风云合击/地图数据.txt";
 	
-	public static void main(String[] args) {
-//		FileUtil.errorRecovery(goodsFile,root);
-		String content = FileUtil.getTxtFileContenet("D:/Documents/Tencent Files/364499854/FileRecv/", "地图数据.txt");
-		
-		String[] monsters = FileUtil.getDirectoryFileList(root);
-		for(String monster:monsters){
-			monster = formartMonsterName(monster);
-			if(content.contains(monster)){
-//				System.out.println("地图中有"+monster);
-			}else{
-				System.out.println("地图中没有"+monster);
-			}
-			
-		}
+	public static void main(String[] args) throws IOException {
+//		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
+//		FileUtil.showGoodsIsBAOCHU(true, goodsFile, root);//显示可爆、不可爆的物品
+//		FileUtil.checkGoodsWhereBao("屠龙", root);//检查物品在哪爆	
+//		FileUtil.showMonster(false,root,mapDataFile);//显示地图中 存在、不存在的怪物
+//		FileUtil.replaceChatT(root);//替换掉'\t'为' '
+//		FileUtil.rejectMonsterNoBaoGoods(goodsFile,root);
     }
 	
-	private static String formartMonsterName(String name){
-		name = name.replace(".txt", "");
-		for(int i=0;i<10;i++){
-			name = name.replace(String.valueOf(i), "");
-		}
-		return name;
-	}
-	
-	
-	
-	
+
 	
 }

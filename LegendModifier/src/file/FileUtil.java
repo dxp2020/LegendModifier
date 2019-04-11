@@ -9,6 +9,18 @@ import java.io.IOException;
 public class FileUtil {
 	
 	/**
+	 * 显示怪物可爆物品数量
+	 * @param root
+	 */
+	public static void showMonsterGoodsNum(String root) {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		for(String monster:monsters){
+			int line = FileUtil.getTxtFileContenetLines(root+monster);
+			System.out.println(monster + "--goods num--"+line);
+		}
+	}
+	
+	/**
 	 * 剔除爆率文件中不存在的物品
 	 */
 	public static void rejectMonsterNoBaoGoods(String goodsFile,String root) {
@@ -411,6 +423,49 @@ public class FileUtil {
 					reader.close();
 				}
 	        }
+		}
+	}
+
+	/**
+	 * 获取文本内有多少有效行数
+	 * @param filePath
+	 * @return
+	 */
+	public static int getTxtFileContenetLines(String filePath) {
+		File file = new File(filePath);
+		FileReader reader = null;
+        BufferedReader br = null;
+        int goodsNums=0;
+        try{
+        	reader = new FileReader(file);
+    		br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) {
+            	if(!"".equals(line)){
+            		goodsNums++;
+            	}
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+        	try {
+        		if (br!=null) {
+					br.close();
+				}
+				if(reader!=null){
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        }
+		return goodsNums;
+	}
+
+	public static void deleteFiles(String filePath) {
+		File file = new File(filePath);
+		if(file.exists()) {
+			file.delete();
 		}
 	}
 }

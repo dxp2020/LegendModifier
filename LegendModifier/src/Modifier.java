@@ -1,7 +1,3 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 
 import file.FileUtil;
@@ -17,9 +13,10 @@ public class Modifier {
 //		FileUtil.checkGoodsWhereBao("屠龙", root);//检查物品在哪爆	
 //		FileUtil.showMonster(false,root,mapDataFile);//显示地图中 存在、不存在的怪物
 //		FileUtil.replaceChatT(root);//替换掉'\t'为' '
-//		FileUtil.rejectMonsterNoBaoGoods(goodsFile,root);
+//		FileUtil.rejectMonsterNoBaoGoods(goodsFile,root);//剔除爆率文件中不存在的物品
+		FileUtil.showMonsterGoodsNum(root);//显示怪物可爆物品数量
     }
 	
-
+	
 	
 }

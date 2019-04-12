@@ -9,9 +9,9 @@ import java.util.Map;
 import file.FileUtil;
 
 public class Modifier {
-	private static String root = "C:/Users/Administrator/Desktop/开服资料/风云合击/MonItems/MonItems/";
-	private static String goodsFile = "C:/Users/Administrator/Desktop/开服资料/风云合击/物品名称.txt";
-	private static String mapDataFile = "C:/Users/Administrator/Desktop/开服资料/风云合击/地图数据.txt";
+	private static String root = "C:/Users/Administrator/Desktop/开服资料/星王传奇/MonItems/MonItems/";
+	private static String goodsFile = "C:/Users/Administrator/Desktop/开服资料/星王传奇/物品名称.txt";
+	private static String mapDataFile = "C:/Users/Administrator/Desktop/开服资料/星王传奇/地图数据.txt";
 	
 	public static void main(String[] args) throws IOException {
 //		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
@@ -25,11 +25,42 @@ public class Modifier {
 		
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
-//		checkGoodsWhereBao("战神",root);//检查物品在哪爆	
-//		remindBaolv("真魂",30, root);//修改爆率
+//		checkGoods("强化",goodsFile);
+//		checkGoodsWhereBao("雷霆",root);//检查物品在哪爆	
+//		remindBaolv("法神头盔",15, root);//修改爆率
+		remindAllBaolv("逍遥扇",20, root);//修改爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
     }
 	
+	private static void checkGoods(String obtainGoods, String pathname) {
+		FileReader reader = null;
+        BufferedReader br = null;
+        try{
+        	reader = new FileReader(pathname);
+    		br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) {
+            	if(!"".equals(line)&&line.contains(obtainGoods)) {
+            		System.out.println(line);
+            	}
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+        	try {
+        		if (br!=null) {
+					br.close();
+				}
+				if(reader!=null){
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        }
+		
+	}
+
 	private static void addGoods(String obtainGoods, String addGoods, int baolv) {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		for(String monster:monsters){
@@ -71,6 +102,49 @@ public class Modifier {
 		
 	}
 
+	private static void remindAllBaolv(String goodsName, int balv, String root) {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		for(String monster:monsters){
+			boolean isChanged = false;
+			String pathname= root+monster;
+			FileReader reader = null;
+	        BufferedReader br = null;
+	        StringBuffer sb = new StringBuffer();       
+	        try{
+	        	reader = new FileReader(pathname);
+	    		br = new BufferedReader(reader);
+	            String line;
+	            while ((line = br.readLine()) != null) {
+	            	if(!"".equals(line)&&line.contains(goodsName)) {
+	            		String goodsInfo = line.substring(line.indexOf(" "),line.length());
+            			isChanged = true;
+            			System.out.print(line+"<--->");
+            			line = "1/"+balv+goodsInfo;
+            			System.out.println(line);
+	            	}
+	            	sb.append(line+"\n");
+	            }
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	        }finally{
+	        	try {
+	        		if (br!=null) {
+						br.close();
+					}
+					if(reader!=null){
+						reader.close();
+					}
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+	        	if (isChanged) {
+					FileUtil.writeContent(root, monster, sb.toString());
+					System.out.println("写入成功：" + monster);
+				}
+	        }
+		}
+	}
+	
 	private static void remindBaolv(String goodsName, int balv, String root) {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		for(String monster:monsters){

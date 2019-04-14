@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileUtil {
 	
@@ -412,7 +414,6 @@ public class FileUtil {
 	            		String[] arr = line.split(" ");
 	            		String baolv = arr[0];
 	            		String goodsName = arr[1];
-	            		break;
 	            	}
 	            }
 	        }finally{
@@ -468,4 +469,88 @@ public class FileUtil {
 			file.delete();
 		}
 	}
+	
+
+	public static List<String> getGoodsList(String goodsFile){
+		FileReader reader = null;
+        BufferedReader br = null;
+        List<String> list = new ArrayList();       
+        try{
+        	reader = new FileReader(goodsFile);
+    		br = new BufferedReader(reader);
+            String line;
+            while ((line = br.readLine()) != null) {
+            	if(!"".equals(line)) {
+            		list.add(line);
+            	}
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally{
+        	try {
+        		if (br!=null) {
+					br.close();
+				}
+				if(reader!=null){
+					reader.close();
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+        }
+        return list;
+	}
+	
+	public static void checkRepeatGoods(String goodsFile,String noRepeatgoodsFile, String root) {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> goodslist = getGoodsList(goodsFile);
+		List<String> noRepeatgoodslist = getGoodsList(noRepeatgoodsFile);
+		for(String monster:monsters){
+			if(!monster.contains(".txt")) {
+				continue;
+			}
+			for(String goods:goodslist) {
+				if(!noRepeatgoodslist.contains(goods)) {
+					continue;
+				}
+				int count = 0;
+				FileReader reader = null;
+		        BufferedReader br = null;
+		        try{
+		        	reader = new FileReader(root+monster);
+		    		br = new BufferedReader(reader);
+		            String line;
+		            while ((line = br.readLine()) != null) {
+		            	if(!"".equals(line)) {
+		            		String goodsInfo = line.substring(line.indexOf(" "),line.length()).trim();
+		            		if(goodsInfo.equals(goods)) {
+		            			count++;
+		            		}
+		            	}
+		            	if(count>1) {
+		            		System.out.println(monster+"---" + goods);
+		            		String s = null;
+		            		s.toString();
+		            	}
+		            }
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }finally{
+		        	try {
+		        		if (br!=null) {
+							br.close();
+						}
+						if(reader!=null){
+							reader.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+		        }
+			}
+		}
+		
+	}
+	
+	
 }

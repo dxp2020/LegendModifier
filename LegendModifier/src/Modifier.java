@@ -26,7 +26,6 @@ public class Modifier {
 //		FileUtil.rejectMonsterNoBaoGoods(goodsFile,root);//剔除爆率文件中不存在的物品
 //		FileUtil.showMonsterGoodsNum(root);//显示怪物可爆物品数量
 		
-		
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("强化",goodsFile);
@@ -36,8 +35,73 @@ public class Modifier {
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
 //		checkMonster("暗之",root);//检查怪物
+		deleteNoContainerZhanShenXingWangGoodsInfo();//删除不该包含战神装备的怪物
+		addContainerQiangHuaGoodsToMonster();//添加强化装备到怪物中
     }
 	
+	private static void addContainerQiangHuaGoodsToMonster() {
+		
+		
+	}
+
+	private static boolean isExsitZhanShen(String line,Map<String,List<String>> map){
+		List<String> list = map.get("noContainer");
+		for(String goods:list){
+			if(line.contains(goods)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private static void deleteNoContainerZhanShenXingWangGoodsInfo() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> noContainerZhanShen= DataProvider.getNoContainerZhanShenXingWangMonster();
+		Map<String,List<String>> map = DataProvider.getMiddleGradeMapMonsterInfo();
+		for(String monster:monsters){
+			String simpleMonster = monster.replace(".txt", "");
+			if(noContainerZhanShen.contains(simpleMonster)){
+				boolean isChanged = false;
+				String pathname= root+monster;
+				FileReader reader = null;
+		        BufferedReader br = null;
+		        StringBuffer sb = new StringBuffer();       
+		        try{
+		        	reader = new FileReader(pathname);
+		    		br = new BufferedReader(reader);
+		            String line;
+		            while ((line = br.readLine()) != null) {
+		            	if(!"".equals(line)&&isExsitZhanShen(line, map)) {
+		            		isChanged = true;
+		            		System.out.println(monster+"  "+line + "被替换");
+		            		sb.append("");
+		            	}else{
+		            		sb.append(line + "\n");
+		            	}
+		            }
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }finally{
+		        	try {
+		        		if (br!=null) {
+							br.close();
+						}
+						if(reader!=null){
+							reader.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+		        	if (isChanged) {
+						FileUtil.writeContent(root, monster, sb.toString());
+						System.out.println("写入成功：" + monster);
+					}
+		        }
+			}
+		}
+		
+	}
+
 	private static void remindBaoLv(Map<String,List<String>> map, String root) {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		for(String monster:monsters){

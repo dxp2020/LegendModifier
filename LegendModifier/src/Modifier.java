@@ -11,13 +11,13 @@ import bean.DataProvider;
 import file.FileUtil;
 
 public class Modifier {
-	private static String root = "F:/github/LegendModifier/LegendModifier/星王传奇/MonItems/MonItems/";
-	private static String goodsFile = "F:/github/LegendModifier/LegendModifier/星王传奇/物品名称.txt";
-	private static String noRepeatgoodsFile = "F:/github/LegendModifier/LegendModifier/星王传奇/物品名称-不可重复.txt";
-	private static String mapDataFile = "F:/github/LegendModifier/LegendModifier/星王传奇/地图数据.txt";
+	private static String root = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/MonItems/MonItems/";
+	private static String goodsFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/物品名称.txt";
+	private static String noRepeatgoodsFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/物品名称-不可重复.txt";
+	private static String mapDataFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/地图数据.txt";
 	
 	public static void main(String[] args){
-		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
+//		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
 //		FileUtil.checkRepeatGoods(goodsFile,noRepeatgoodsFile,root);//检查爆率文件中是否存在重复的物品
 //		FileUtil.showGoodsIsBAOCHU(true, goodsFile, root);//显示可爆、不可爆的物品
 //		FileUtil.checkGoodsWhereBao("0斗笠44号", root);//检查物品在哪爆	
@@ -30,7 +30,7 @@ public class Modifier {
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("强化",goodsFile);
-//		checkGoodsWhereBao("雷霆",root);//检查物品在哪爆	
+		checkGoodsWhereBao("圣魔",root);//检查物品在哪爆	
 //		remindAllBaolv(DataProvider.getBaolvRemindDataForLowZhuangBei(), root);//设定固有爆率(非顶级装备)
 //		remindBaoLv(DataProvider.getBaoLvForBoss(),root);//设定暗之小怪、boos、大boos爆率
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率

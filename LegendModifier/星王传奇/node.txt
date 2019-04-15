@@ -1,0 +1,10 @@
+
+
+list.add("暗之魔龙巨蛾");
+list.add("暗之魔龙巨蛾1");
+list.add("暗之魔龙巨蛾2");
+list.add("暗之魔龙巨蛾3");
+list.add("暗之魔龙战将");
+list.add("暗之魔龙战将1");
+list.add("暗之魔龙战将2");
+list.add("暗之魔龙战将3");

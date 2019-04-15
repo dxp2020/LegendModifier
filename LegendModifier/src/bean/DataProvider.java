@@ -20,6 +20,160 @@ public class DataProvider {
 		return map;
 	}
 	
+	public static List<String> getMiddleMonster(){
+		List<String> list = new ArrayList<>();
+		list.add("冥界王子");//地图中不存在的
+		list.add("冥界王子1");
+		list.add("冥界王子2");
+		list.add("冥界王子3");
+		list.add("冥界鬼王");
+		list.add("冥界鬼王1");
+		list.add("冥界鬼王2");
+		list.add("冥界鬼王3");
+		list.add("冥界魔尊");
+		list.add("冥界魔尊1");
+		list.add("冥界魔尊2");
+		list.add("冥界魔尊3");
+		list.add("天罡圣兽");
+		list.add("天罡圣兽1");
+		list.add("天罡圣兽2");
+		list.add("天罡圣兽3");
+		list.add("寒冰魔");
+		list.add("寒冰侍卫");
+		list.add("寒冰灭天魔");
+		list.add("寒冰巨魔");
+		list.add("寒冰战将");
+		list.add("寒冰战将");
+		list.add("暴风·巨魔兽");
+		list.add("暴风·收割者");
+		list.add("暴风·统治者");
+		list.add("暴风·赤炎龙");
+		list.add("暴风巨兽");
+		list.add("暴风朱雀");
+		list.add("暴风终级神龙");
+		list.add("暴风蓝龙");
+		list.add("暴风黄金龙");
+		list.add("炼狱妖士");
+		list.add("炼狱妖士1");
+		list.add("狼锤铁战1");
+		list.add("狼锤铁战2");
+		list.add("狼锤铁战3");
+		list.add("神器魔王");
+		list.add("经验魔王");
+		list.add("西域恶魔");
+		list.add("财富魔王");
+		list.add("远古魔牛");
+		list.add("雪域冰狼11");
+		list.add("雪域冰狼22");
+		list.add("雪域冰狼33");
+		list.add("雪域冰狼44");
+		
+		list.add("雪域冰甲虫11");
+		list.add("雪域冰甲虫12");
+		list.add("雪域冰甲虫13");
+		list.add("雪域冰甲虫14");
+		list.add("雪域力士11");
+		list.add("雪域力士22");
+		list.add("雪域力士33");
+		list.add("雪域力士44");
+		list.add("雪域卫士11");
+		list.add("雪域卫士22");
+		list.add("雪域卫士33");
+		list.add("雪域卫士44");
+		list.add("雪域天将11");
+		list.add("雪域天将22");
+		list.add("雪域天将33");
+		list.add("雪域天将44");
+		list.add("雪域寒冰魔11");
+		list.add("雪域寒冰魔22");
+		list.add("雪域寒冰魔33");
+		list.add("雪域寒冰魔44");
+		list.add("雪域战将11");
+		list.add("雪域战将22");
+		list.add("雪域战将33");
+		list.add("雪域战将44");
+		list.add("雪域毛人11");
+		list.add("雪域毛人22");
+		list.add("雪域毛人33");
+		list.add("雪域毛人44");
+		list.add("雪域野人11");
+		list.add("雪域野人22");
+		list.add("雪域野人33");
+		list.add("雪域野人44");
+		list.add("巨镰蜘蛛");//地图中存在的
+		list.add("恶魔蜘蛛");
+		list.add("暗之魔龙力士");
+		list.add("暗之魔龙力士1");
+		list.add("暗之魔龙力士2");
+		list.add("暗之魔龙力士3");
+		list.add("暗之魔龙巨蛾");
+		list.add("暗之魔龙巨蛾1");
+		list.add("暗之魔龙巨蛾2");
+		list.add("暗之魔龙巨蛾3");
+		list.add("暗之魔龙战将");
+		list.add("暗之魔龙战将1");
+		list.add("暗之魔龙战将2");
+		list.add("暗之魔龙战将3");
+		list.add("狂热火蜥蜴");
+		list.add("绿魔蜘蛛");
+		list.add("金刚护卫");
+		list.add("金杖蜘蛛");
+		list.add("魔龙力士");
+		list.add("魔龙巨蛾");
+		list.add("五毒魔");
+		return list;
+	}
+	
+	public static Map<String,List<String>> getMiddleGradeMapMonsterInfo() {
+		List<String> containerGoods = new ArrayList<>();
+		containerGoods.add("强化雷霆护腕");
+		containerGoods.add("强化雷霆战戒");
+		containerGoods.add("强化雷霆战靴");
+		containerGoods.add("强化雷霆腰带");
+		containerGoods.add("强化烈焰护腕");
+		containerGoods.add("强化烈焰魔戒");
+		containerGoods.add("强化烈焰魔靴");
+		containerGoods.add("强化烈焰腰带");
+		containerGoods.add("强化光芒护腕");
+		containerGoods.add("强化光芒道戒");
+		containerGoods.add("强化光芒道靴");
+		containerGoods.add("强化光芒腰带");
+		containerGoods.add("雷霆战甲(男)");
+		containerGoods.add("雷霆战甲(女)");
+		containerGoods.add("烈焰魔衣(男)");
+		containerGoods.add("烈焰魔衣(女)");
+		containerGoods.add("光芒道袍(男)");
+		containerGoods.add("光芒道袍(女)");
+		
+		List<String> noContainerGoods = new ArrayList<>();
+		noContainerGoods.add("战神项链");
+		noContainerGoods.add("战神手镯");
+		noContainerGoods.add("战神戒指");
+		noContainerGoods.add("圣魔项链");
+		noContainerGoods.add("圣魔手镯");
+		noContainerGoods.add("圣魔戒指");
+		noContainerGoods.add("真魂项链");
+		noContainerGoods.add("真魂手镯");
+		noContainerGoods.add("真魂戒指");
+		noContainerGoods.add("战神头盔");
+		noContainerGoods.add("圣魔头盔");
+		noContainerGoods.add("真魂头盔");
+		noContainerGoods.add("战神圣靴");
+		noContainerGoods.add("战神腰带");
+		noContainerGoods.add("圣魔法靴");
+		noContainerGoods.add("圣魔腰带");
+		noContainerGoods.add("真魂道靴");
+		noContainerGoods.add("真魂腰带");
+		noContainerGoods.add("霸者之刃");
+		noContainerGoods.add("屠龙");
+		noContainerGoods.add("嗜魂法杖");
+		
+		Map<String,List<String>> map = new HashMap<String,List<String>>();
+		map.put("container", containerGoods);
+		map.put("noContainer", noContainerGoods);
+		return map;
+	}
+	
 	public static Map<String,Integer> getBaolvRemindDataForLowZhuangBei(){
 		Map<String,Integer> map = new HashMap<String, Integer>();
 		

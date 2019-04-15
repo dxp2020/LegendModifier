@@ -338,6 +338,29 @@ public class DataProvider {
 		return map;
 	}
 	
+	public static Map<String,Integer> getBaolvRemindDataForQiangHua(){
+		Map<String,Integer> map = new HashMap<String, Integer>();
+		map.put("强化雷霆护腕", 35);
+		map.put("强化雷霆战戒", 35);
+		map.put("强化雷霆战靴", 35);
+		map.put("强化雷霆腰带", 35);
+		map.put("强化烈焰护腕", 35);
+		map.put("强化烈焰魔戒", 35);
+		map.put("强化烈焰魔靴", 35);
+		map.put("强化烈焰腰带", 35);
+		map.put("强化光芒护腕", 35);
+		map.put("强化光芒道戒", 35);
+		map.put("强化光芒道靴", 35);
+		map.put("强化光芒腰带", 35);
+		
+		map.put("雷霆战甲(男)", 40);
+		map.put("雷霆战甲(女)", 40);
+		map.put("烈焰魔衣(男)", 40);
+		map.put("烈焰魔衣(女)", 40);
+		map.put("光芒道袍(男)", 40);
+		map.put("光芒道袍(女)", 40);
+		return map;
+	}
 	public static Map<String,Integer> getBaolvRemindDataForLowZhuangBei(){
 		Map<String,Integer> map = new HashMap<String, Integer>();
 		
@@ -378,25 +401,11 @@ public class DataProvider {
 		map.put("光芒道靴", 25);
 		map.put("光芒腰带", 25);
 		
-		map.put("强化雷霆护腕", 35);
-		map.put("强化雷霆战戒", 35);
-		map.put("强化雷霆战靴", 35);
-		map.put("强化雷霆腰带", 35);
-		map.put("强化烈焰护腕", 35);
-		map.put("强化烈焰魔戒", 35);
-		map.put("强化烈焰魔靴", 35);
-		map.put("强化烈焰腰带", 35);
-		map.put("强化光芒护腕", 35);
-		map.put("强化光芒道戒", 35);
-		map.put("强化光芒道靴", 35);
-		map.put("强化光芒腰带", 35);
-		
-		map.put("雷霆战甲(男)", 40);
-		map.put("雷霆战甲(女)", 40);
-		map.put("烈焰魔衣(男)", 40);
-		map.put("烈焰魔衣(女)", 40);
-		map.put("光芒道袍(男)", 40);
-		map.put("光芒道袍(女)", 40);
+		Map<String,Integer> qiangHuaMap =getBaolvRemindDataForQiangHua();
+		for(String key:qiangHuaMap.keySet()){
+			Integer baolv = qiangHuaMap.get(key);
+			map.put(key, baolv);
+		}
 		
 		map.put("战神项链", 50);
 		map.put("战神手镯", 50);

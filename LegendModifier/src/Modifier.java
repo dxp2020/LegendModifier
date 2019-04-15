@@ -11,10 +11,10 @@ import bean.DataProvider;
 import file.FileUtil;
 
 public class Modifier {
-	private static String root = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/MonItems/MonItems/";
-	private static String goodsFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/物品名称.txt";
-	private static String noRepeatgoodsFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/物品名称-不可重复.txt";
-	private static String mapDataFile = "C:/Users/Administrator/git/repository/LegendModifier/星王传奇/地图数据.txt";
+	private static String root = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/MonItems/MonItems/";
+	private static String goodsFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/物品名称.txt";
+	private static String noRepeatgoodsFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/物品名称-不可重复.txt";
+	private static String mapDataFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/地图数据.txt";
 	
 	public static void main(String[] args){
 //		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
@@ -35,25 +35,38 @@ public class Modifier {
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
 //		checkMonster("暗之",root);//检查怪物
-		deleteNoContainerZhanShenXingWangGoodsInfo();//删除不该包含战神装备的怪物
+//		deleteNoContainerZhanShenXingWangGoodsInfo();//删除不该包含战神装备的怪物
 		addContainerQiangHuaGoodsToMonster();//添加强化装备到怪物中
     }
 	
 	private static void addContainerQiangHuaGoodsToMonster() {
-		
-		
-	}
-
-	private static boolean isExsitZhanShen(String line,Map<String,List<String>> map){
-		List<String> list = map.get("noContainer");
-		for(String goods:list){
-			if(line.contains(goods)){
-				return true;
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> mContainerQiangHua= DataProvider.getContainerQiangHuaMonster();
+		Map<String,Integer> qiangHuaMap = DataProvider.getBaolvRemindDataForQiangHua();
+		for(String monster:monsters){
+			String simpleMonster = monster.replace(".txt", "");
+			if(mContainerQiangHua.contains(simpleMonster)){
+				boolean isChanged = false;
+				String pathname= root+monster;
+				String content = FileUtil.getTxtFileContenet(pathname);
+				StringBuffer sb = new StringBuffer(content);
+				for(String key:qiangHuaMap.keySet()){
+					if(!content.contains(key)){
+						isChanged = true;
+						Integer baolv = qiangHuaMap.get(key);
+						sb.append("1/"+baolv+" "+key+"\n");
+						
+						System.out.println(monster+" "+ "1/"+baolv+" "+key);
+					}
+				}
+		        if (isChanged) {
+					FileUtil.writeContent(root, monster, sb.toString());
+					System.out.println("写入成功：" + monster);
+				}
 			}
 		}
-		return false;
 	}
-	
+
 	private static void deleteNoContainerZhanShenXingWangGoodsInfo() {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		List<String> noContainerZhanShen= DataProvider.getNoContainerZhanShenXingWangMonster();
@@ -99,7 +112,16 @@ public class Modifier {
 		        }
 			}
 		}
-		
+	}
+	
+	private static boolean isExsitZhanShen(String line,Map<String,List<String>> map){
+		List<String> list = map.get("noContainer");
+		for(String goods:list){
+			if(line.contains(goods)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	private static void remindBaoLv(Map<String,List<String>> map, String root) {

@@ -30,7 +30,7 @@ public class Modifier {
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("强化",goodsFile);
-		checkGoodsWhereBao("圣魔",root);//检查物品在哪爆	
+//		checkGoodsWhereBao("真魂",root);//检查物品在哪爆	
 //		remindAllBaolv(DataProvider.getBaolvRemindDataForLowZhuangBei(), root);//设定固有爆率(非顶级装备)
 //		remindBaoLv(DataProvider.getBaoLvForBoss(),root);//设定暗之小怪、boos、大boos爆率
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率

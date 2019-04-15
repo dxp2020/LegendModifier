@@ -100,7 +100,8 @@ public class DataProvider {
 		list.add("雪域野人22");
 		list.add("雪域野人33");
 		list.add("雪域野人44");
-		list.add("巨镰蜘蛛");//地图中存在的
+		list.add("五毒魔");//地图中存在的
+		list.add("巨镰蜘蛛");
 		list.add("恶魔蜘蛛");
 		list.add("暗之魔龙力士");
 		list.add("暗之魔龙力士1");
@@ -115,12 +116,12 @@ public class DataProvider {
 		list.add("暗之魔龙战将2");
 		list.add("暗之魔龙战将3");
 		list.add("狂热火蜥蜴");
+		list.add("圣殿卫士");
 		list.add("绿魔蜘蛛");
 		list.add("金刚护卫");
 		list.add("金杖蜘蛛");
 		list.add("魔龙力士");
 		list.add("魔龙巨蛾");
-		list.add("五毒魔");
 		return list;
 	}
 	

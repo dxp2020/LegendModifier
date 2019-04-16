@@ -8,44 +8,7 @@ import java.util.Map;
 
 public class DataProvider {
 	
-	public static Map<String,List<String>> getBaoLvForBoss() {
-		List<String> lowBoss = DataProvider.getLowBoss();
-		List<String> boss = DataProvider.getBoss();
-		List<String> highBoss = DataProvider.getHighBoss();
-		
-		Map<String,List<String>> map = new HashMap<String,List<String>>();
-		map.put("20",lowBoss);
-		map.put("30",boss);
-		map.put("35",highBoss);
-		return map;
-	}
-	
 	public static List<String> getContainerXingWangMonster(){
-		List<String> list = new ArrayList<>();
-		list.add("暗之赤月恶魔");
-		list.add("暗之魔龙教主");
-		list.add("打我爆终极");
-		list.add("超级魔龙教主");
-		list.add("斗勋教主");
-		list.add("绝岭道圣");
-		list.add("绝岭魔尊");
-		list.add("绝岭战神");
-		list.add("绝命恶魔");
-		list.add("龍之金龙");
-		list.add("龍之天珠");
-		list.add("神之赤月恶魔");
-		list.add("嗜血爆龙");
-		list.add("嗜血教主");
-		list.add("雷炎神龙");
-		list.add("雷炎蛛王");
-		list.add("王者教主");
-		list.add("赤月恶魔");
-		list.add("魔龙教主");
-
-		return list;
-	}
-	
-	public static List<String> getContainerZhanShenMonster(){
 		List<String> list = new ArrayList<>();
 		list.add("暗之赤月恶魔");
 		list.add("暗之魔龙教主");
@@ -71,6 +34,7 @@ public class DataProvider {
 
 		return list;
 	}
+	
 	public static List<String> getContainerQiangHuaMonster(){
 		List<String> list = new ArrayList<>();
 		list.add("冥界王子");//地图中不存在的
@@ -233,88 +197,117 @@ public class DataProvider {
 		return list;
 	}
 	
-	public static Map<String,List<String>> getMiddleGradeMapMonsterInfo() {
-		List<String> containerGoods = new ArrayList<>();
-		containerGoods.add("强化雷霆护腕");
-		containerGoods.add("强化雷霆战戒");
-		containerGoods.add("强化雷霆战靴");
-		containerGoods.add("强化雷霆腰带");
-		containerGoods.add("强化烈焰护腕");
-		containerGoods.add("强化烈焰魔戒");
-		containerGoods.add("强化烈焰魔靴");
-		containerGoods.add("强化烈焰腰带");
-		containerGoods.add("强化光芒护腕");
-		containerGoods.add("强化光芒道戒");
-		containerGoods.add("强化光芒道靴");
-		containerGoods.add("强化光芒腰带");
-		containerGoods.add("雷霆战甲(男)");
-		containerGoods.add("雷霆战甲(女)");
-		containerGoods.add("烈焰魔衣(男)");
-		containerGoods.add("烈焰魔衣(女)");
-		containerGoods.add("光芒道袍(男)");
-		containerGoods.add("光芒道袍(女)");
+	public static Map<String,List<String>> getGoodsGrade() {
+		List<String> chiyueGoods = new ArrayList<>();
+		chiyueGoods.add("圣战头盔");
+		chiyueGoods.add("圣战项链");
+		chiyueGoods.add("圣战手镯");
+		chiyueGoods.add("圣战戒指");
+		chiyueGoods.add("命运之刃");
+		chiyueGoods.add("法神头盔");
+		chiyueGoods.add("法神项链");
+		chiyueGoods.add("法神手镯");
+		chiyueGoods.add("法神戒指");
+		chiyueGoods.add("天尊头盔");
+		chiyueGoods.add("天尊项链");
+		chiyueGoods.add("天尊手镯");
+		chiyueGoods.add("天尊戒指");
+
+		chiyueGoods.add("天魔神甲");
+		chiyueGoods.add("圣战宝甲");
+		chiyueGoods.add("法神披风");
+		chiyueGoods.add("霓裳羽衣");
+		chiyueGoods.add("天尊道袍");
+		chiyueGoods.add("天师长袍");
 		
-		List<String> noContainerGoods = new ArrayList<>();
-		noContainerGoods.add("战神项链");
-		noContainerGoods.add("战神手镯");
-		noContainerGoods.add("战神戒指");
-		noContainerGoods.add("圣魔项链");
-		noContainerGoods.add("圣魔手镯");
-		noContainerGoods.add("圣魔戒指");
-		noContainerGoods.add("真魂项链");
-		noContainerGoods.add("真魂手镯");
-		noContainerGoods.add("真魂戒指");
-		noContainerGoods.add("战神头盔");
-		noContainerGoods.add("圣魔头盔");
-		noContainerGoods.add("真魂头盔");
-		noContainerGoods.add("战神圣靴");
-		noContainerGoods.add("战神腰带");
-		noContainerGoods.add("圣魔法靴");
-		noContainerGoods.add("圣魔腰带");
-		noContainerGoods.add("真魂道靴");
-		noContainerGoods.add("真魂腰带");
-		noContainerGoods.add("凤天魔甲");
-		noContainerGoods.add("凰天魔衣");
-		noContainerGoods.add("开天");
-		noContainerGoods.add("镇天");
-		noContainerGoods.add("玄天");
+		List<String> qianghuaGoods = new ArrayList<>();
+		qianghuaGoods.add("强化雷霆护腕");
+		qianghuaGoods.add("强化雷霆战戒");
+		qianghuaGoods.add("强化雷霆战靴");
+		qianghuaGoods.add("强化雷霆腰带");
+		qianghuaGoods.add("强化烈焰护腕");
+		qianghuaGoods.add("强化烈焰魔戒");
+		qianghuaGoods.add("强化烈焰魔靴");
+		qianghuaGoods.add("强化烈焰腰带");
+		qianghuaGoods.add("强化光芒护腕");
+		qianghuaGoods.add("强化光芒道戒");
+		qianghuaGoods.add("强化光芒道靴");
+		qianghuaGoods.add("强化光芒腰带");
+		qianghuaGoods.add("雷霆战甲(男)");
+		qianghuaGoods.add("雷霆战甲(女)");
+		qianghuaGoods.add("烈焰魔衣(男)");
+		qianghuaGoods.add("烈焰魔衣(女)");
+		qianghuaGoods.add("光芒道袍(男)");
+		qianghuaGoods.add("光芒道袍(女)");
+		qianghuaGoods.add("圣龙盔");
+		qianghuaGoods.add("魔龙盔");
+		qianghuaGoods.add("天龙盔");
+		qianghuaGoods.add("斗笠43号");
+		qianghuaGoods.add("斗笠44号");
+		qianghuaGoods.add("斗笠45号");
 		
-		noContainerGoods.add("霸者之刃");
-		noContainerGoods.add("屠龙");
-		noContainerGoods.add("嗜魂法杖");
+		List<String> zhangshenXingwang = new ArrayList<>();
+		zhangshenXingwang.add("战神项链");
+		zhangshenXingwang.add("战神手镯");
+		zhangshenXingwang.add("战神戒指");
+		zhangshenXingwang.add("圣魔项链");
+		zhangshenXingwang.add("圣魔手镯");
+		zhangshenXingwang.add("圣魔戒指");
+		zhangshenXingwang.add("真魂项链");
+		zhangshenXingwang.add("真魂手镯");
+		zhangshenXingwang.add("真魂戒指");
+		zhangshenXingwang.add("战神头盔");
+		zhangshenXingwang.add("圣魔头盔");
+		zhangshenXingwang.add("真魂头盔");
+		zhangshenXingwang.add("战神圣靴");
+		zhangshenXingwang.add("战神腰带");
+		zhangshenXingwang.add("圣魔法靴");
+		zhangshenXingwang.add("圣魔腰带");
+		zhangshenXingwang.add("真魂道靴");
+		zhangshenXingwang.add("真魂腰带");
+		zhangshenXingwang.add("凤天魔甲");
+		zhangshenXingwang.add("凰天魔衣");
+		zhangshenXingwang.add("开天");
+		zhangshenXingwang.add("镇天");
+		zhangshenXingwang.add("玄天");
 		
-		noContainerGoods.add("黄金勋章");
-		noContainerGoods.add("黄金斗笠");
-		noContainerGoods.add("白银勋章");
-		noContainerGoods.add("白银斗笠");
+		zhangshenXingwang.add("霸者之刃");
+		zhangshenXingwang.add("屠龙");
+		zhangshenXingwang.add("嗜魂法杖");
 		
-		noContainerGoods.add("星王神甲");
-		noContainerGoods.add("星王神衣");
-		noContainerGoods.add("星王战链");
-		noContainerGoods.add("星王战镯");
-		noContainerGoods.add("星王战戒");
-		noContainerGoods.add("星王战带");
-		noContainerGoods.add("星王战靴");
-		noContainerGoods.add("星王法链");
-		noContainerGoods.add("星王法镯");
-		noContainerGoods.add("星王法戒");
-		noContainerGoods.add("星王法带");
-		noContainerGoods.add("星王法靴");
-		noContainerGoods.add("星王道链");
-		noContainerGoods.add("星王道镯");
-		noContainerGoods.add("星王道戒");
-		noContainerGoods.add("星王道带");
-		noContainerGoods.add("星王道靴");
-		noContainerGoods.add("星王法盔");
-		noContainerGoods.add("星王道盔");
-		noContainerGoods.add("星王战盔");
-		noContainerGoods.add("星王战刃");
-		noContainerGoods.add("星王道刃");
-		noContainerGoods.add("星王法刃");
+		zhangshenXingwang.add("黄金勋章");
+		zhangshenXingwang.add("黄金斗笠");
+		zhangshenXingwang.add("白银勋章");
+		zhangshenXingwang.add("白银斗笠");
+		
+		zhangshenXingwang.add("星王神甲");
+		zhangshenXingwang.add("星王神衣");
+		zhangshenXingwang.add("星王战链");
+		zhangshenXingwang.add("星王战镯");
+		zhangshenXingwang.add("星王战戒");
+		zhangshenXingwang.add("星王战带");
+		zhangshenXingwang.add("星王战靴");
+		zhangshenXingwang.add("星王法链");
+		zhangshenXingwang.add("星王法镯");
+		zhangshenXingwang.add("星王法戒");
+		zhangshenXingwang.add("星王法带");
+		zhangshenXingwang.add("星王法靴");
+		zhangshenXingwang.add("星王道链");
+		zhangshenXingwang.add("星王道镯");
+		zhangshenXingwang.add("星王道戒");
+		zhangshenXingwang.add("星王道带");
+		zhangshenXingwang.add("星王道靴");
+		zhangshenXingwang.add("星王法盔");
+		zhangshenXingwang.add("星王道盔");
+		zhangshenXingwang.add("星王战盔");
+		zhangshenXingwang.add("星王战刃");
+		zhangshenXingwang.add("星王道刃");
+		zhangshenXingwang.add("星王法刃");
 		
 		Map<String,List<String>> map = new HashMap<String,List<String>>();
-		map.put("container", containerGoods);
-		map.put("noContainer", noContainerGoods);
+		map.put("chiyue", chiyueGoods);
+		map.put("qianghua", qianghuaGoods);
+		map.put("zhangshenXingwang", zhangshenXingwang);
 		return map;
 	}
 	
@@ -339,6 +332,14 @@ public class DataProvider {
 		map.put("烈焰魔衣(女)", 40);
 		map.put("光芒道袍(男)", 40);
 		map.put("光芒道袍(女)", 40);
+		
+		map.put("圣龙盔", 40);
+		map.put("魔龙盔", 40);
+		map.put("天龙盔", 40);
+		
+		map.put("斗笠43号", 45);
+		map.put("斗笠44号", 45);
+		map.put("斗笠45号", 45);
 		return map;
 	}
 	
@@ -385,54 +386,46 @@ public class DataProvider {
 		map.put("魔杖", 15);
 		map.put("生命项链", 15);
 		
-		map.put("圣战头盔", 15);
-		map.put("圣战项链", 15);
-		map.put("圣战手镯", 15);
-		map.put("圣战戒指", 15);
-		map.put("命运之刃", 15);
-		map.put("法神头盔", 15);
-		map.put("法神项链", 15);
-		map.put("法神手镯", 15);
-		map.put("法神戒指", 15);
-		map.put("天尊头盔", 15);
-		map.put("天尊项链", 15);
-		map.put("天尊手镯", 15);
-		map.put("天尊戒指", 15);
+		map.put("圣战头盔", 30);
+		map.put("圣战项链", 30);
+		map.put("圣战手镯", 30);
+		map.put("圣战戒指", 30);
+		map.put("命运之刃", 30);
+		map.put("法神头盔", 30);
+		map.put("法神项链", 30);
+		map.put("法神手镯", 30);
+		map.put("法神戒指", 30);
+		map.put("天尊头盔", 30);
+		map.put("天尊项链", 30);
+		map.put("天尊手镯", 30);
+		map.put("天尊戒指", 30);
 		
-		map.put("天魔神甲", 20);
-		map.put("圣战宝甲", 20);
-		map.put("法神披风", 20);
-		map.put("霓裳羽衣", 20);
-		map.put("天尊道袍", 20);
-		map.put("天师长袍", 20);
+		map.put("天魔神甲", 35);
+		map.put("圣战宝甲", 35);
+		map.put("法神披风", 35);
+		map.put("霓裳羽衣", 35);
+		map.put("天尊道袍", 35);
+		map.put("天师长袍", 35);
 		
-		map.put("雷霆项链", 25);
-		map.put("雷霆护腕", 25);
-		map.put("雷霆战戒", 25);
-		map.put("雷霆战靴", 25);
-		map.put("雷霆腰带", 25);
-		map.put("烈焰项链", 25);
-		map.put("烈焰护腕", 25);
-		map.put("烈焰魔戒", 25);
-		map.put("烈焰魔靴", 25);
-		map.put("烈焰腰带", 25);
-		map.put("光芒项链", 25);
-		map.put("光芒护腕", 25);
-		map.put("光芒道戒", 25);
-		map.put("光芒道靴", 25);
-		map.put("光芒腰带", 25);
+		map.put("雷霆项链", 30);
+		map.put("雷霆护腕", 30);
+		map.put("雷霆战戒", 30);
+		map.put("雷霆战靴", 30);
+		map.put("雷霆腰带", 30);
+		map.put("烈焰项链", 30);
+		map.put("烈焰护腕", 30);
+		map.put("烈焰魔戒", 30);
+		map.put("烈焰魔靴", 30);
+		map.put("烈焰腰带", 30);
+		map.put("光芒项链", 30);
+		map.put("光芒护腕", 30);
+		map.put("光芒道戒", 30);
+		map.put("光芒道靴", 30);
+		map.put("光芒腰带", 30);
 		
-		map.put("圣龙盔", 25);
-		map.put("魔龙盔", 25);
-		map.put("天龙盔", 25);
-		
-		map.put("荣誉勋章43号", 25);
-		map.put("荣誉勋章44号", 25);
-		map.put("荣誉勋章45号", 25);
-		
-		map.put("斗笠43号", 25);
-		map.put("斗笠44号", 25);
-		map.put("斗笠45号", 25);
+		map.put("荣誉勋章43号", 30);
+		map.put("荣誉勋章44号", 30);
+		map.put("荣誉勋章45号", 30);
 		
 		Map<String,Integer> qiangHuaMap =getBaolvRemindDataForQiangHua();
 		for(String key:qiangHuaMap.keySet()){
@@ -446,13 +439,13 @@ public class DataProvider {
 			map.put(key, baolv);
 		}
 		
-		map.put("怒斩", 25);
-		map.put("龙牙", 25);
-		map.put("逍遥扇", 25);
+		map.put("怒斩", 35);
+		map.put("龙牙", 35);
+		map.put("逍遥扇", 35);
 		
-		map.put("裁决之杖", 20);
-		map.put("骨玉权杖", 20);
-		map.put("龙纹剑", 20);
+		map.put("裁决之杖", 30);
+		map.put("骨玉权杖", 30);
+		map.put("龙纹剑", 30);
 		
 		return map;
 	}
@@ -506,69 +499,19 @@ public class DataProvider {
 		return map;
 	}
 	
-	public static List<String> getBoss(){
+	public static boolean isNotExsit(String goods) {
 		List<String> list = new ArrayList<String>();
-		list.add("双头血魔.txt");
-		list.add("双头金刚.txt");
-		list.add("沃玛教主.txt");
-		list.add("牛魔王.txt");
-		list.add("虹魔教主.txt");
-		list.add("触龙神.txt");
-		list.add("赤月恶魔.txt");
-		list.add("魔龙教主.txt");
-		list.add("黄泉教主.txt");
-		list.add("祭灵教主.txt");
-		list.add("地藏王.txt");
-		list.add("龙之教主.txt");
-		list.add("千年树妖.txt");
-		list.add("千年尸王.txt");
-		list.add("重装使者.txt");
-		return list;
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		list.add("强效太阳水");
+		return false;
 	}
-	
-	public static List<String> getHighBoss(){
-		List<String> list = new ArrayList<String>();
-		list.add("暗之双头血魔.txt");
-		list.add("暗之双头金刚.txt");
-		list.add("暗之沃玛教主.txt");
-		list.add("暗之牛魔王.txt");
-		list.add("暗之虹魔教主.txt");
-		list.add("暗之触龙神.txt");
-		list.add("暗之赤月恶魔.txt");
-		list.add("暗之魔龙教主.txt");
-		list.add("暗之黄泉教主.txt");
-		list.add("打我爆终极.txt");
-		list.add("超级魔龙教主.txt");
-		list.add("斗勋教主.txt");
-		list.add("绝岭道圣.txt");
-		list.add("绝岭魔尊.txt");
-		list.add("绝岭战神.txt");
-		list.add("绝命恶魔.txt");
-		list.add("龍之金龙.txt");
-		list.add("龍之天珠.txt");
-		list.add("神之赤月恶魔.txt");
-		list.add("嗜血爆龙.txt");
-		list.add("嗜血教主.txt");
-		return list;
-	}
-	
-	public static List<String> getLowBoss(){
-		List<String> list = new ArrayList<String>();
-		list.add("暗之骷髅精灵.txt");
-		list.add("暗之魔龙力士.txt" );
-		list.add("暗之魔龙力士1.txt" );
-		list.add("暗之魔龙力士2.txt");
-		list.add("暗之魔龙力士3.txt" );
-		list.add("暗之魔龙巨蛾.txt" );
-		list.add("暗之魔龙巨蛾1.txt" );
-		list.add("暗之魔龙巨蛾2.txt");
-		list.add("暗之魔龙巨蛾3.txt" );
-		list.add("暗之魔龙战将.txt" );
-		list.add("暗之魔龙战将1.txt" );
-		list.add("暗之魔龙战将2.txt"); 
-		list.add("暗之魔龙战将3.txt" );
-		return list;
-	} 
 	
 	public static Integer isExsitBoss(String monster,Map<String,List<String>> map) {
 		Iterator iterator = map.entrySet().iterator();
@@ -582,18 +525,4 @@ public class DataProvider {
 		return 0;
 	}
 	
-	public static boolean isNotExsit(String goods) {
-		List<String> list = new ArrayList<String>();
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		list.add("强效太阳水");
-		
-		return false;
-	}
 }

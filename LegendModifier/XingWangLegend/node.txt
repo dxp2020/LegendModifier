@@ -1,6 +1,29 @@
-map.put("荣誉勋章43号", 25);
-map.put("荣誉勋章44号", 25);
-map.put("荣誉勋章45号", 25);
-map.put("斗笠43号", 25);
-map.put("斗笠44号", 25);
-map.put("斗笠45号", 25);
+qianghuaGoods.add("荣誉勋章43号", 25);
+
+chiyueGoods.add("圣战头盔");
+chiyueGoods.add("圣战项链");
+chiyueGoods.add("圣战手镯");
+chiyueGoods.add("圣战戒指");
+chiyueGoods.add("命运之刃");
+chiyueGoods.add("法神头盔");
+chiyueGoods.add("法神项链");
+chiyueGoods.add("法神手镯");
+chiyueGoods.add("法神戒指");
+chiyueGoods.add("天尊头盔");
+chiyueGoods.add("天尊项链");
+chiyueGoods.add("天尊手镯");
+chiyueGoods.add("天尊戒指");
+
+chiyueGoods.add("天魔神甲");
+chiyueGoods.add("圣战宝甲");
+chiyueGoods.add("法神披风");
+chiyueGoods.add("霓裳羽衣");
+chiyueGoods.add("天尊道袍");
+chiyueGoods.add("天师长袍");
+
+qianghuaGoods.add("圣龙盔");
+qianghuaGoods.add("魔龙盔");
+qianghuaGoods.add("天龙盔");
+qianghuaGoods.add("斗笠43号");
+qianghuaGoods.add("斗笠44号");
+qianghuaGoods.add("斗笠45号");

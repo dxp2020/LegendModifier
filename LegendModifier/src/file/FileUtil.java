@@ -277,7 +277,7 @@ public class FileUtil {
     		br = new BufferedReader(reader);
             String line;
             while ((line = br.readLine()) != null) {
-            	sb.append(line+"\n");
+            	sb.append(line+"\r\n");
             }
         } catch (IOException e) {
             e.printStackTrace();

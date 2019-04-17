@@ -1,0 +1,63 @@
+﻿/* - - - - - - - - - 各浏览器样式默认值标准化  - - - - - - - - -*/
+html,body,span,object,iframe,h1,h2,h3,h4,h5,p,blockquote,pre,
+a,address,code,
+del,em,img,dl,dt,dd,ol,ul,li,
+fieldset,form,label{
+margin:0;padding:0;border:0;
+font-style:inherit;font-family:inherit;vertical-align:baseline;}
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,summary,audio,video{margin:0;padding:0;display: block;}
+html{-webkit-text-size-adjust:none;}
+img{border:none;vertical-align:middle;}
+input,select,button{padding:0;margin:0;outline:none;font-family:inherit;vertical-align:middle;}
+textarea{font-family:inherit;padding:0;margin:0;}
+button{cursor:pointer;}
+html{overflow-x:hidden;}
+body{font-size:12px;background-color:#140001;font-family:'Microsoft YaHei';color:#a64e04;}
+ul,ol{list-style-type:none;}
+h1{font-size:24px;}
+h2{font-size:18px;}
+h3,h4{font-size:14px;}
+h5{font-size:12px;}
+i,em,address{font-style:normal;}
+a{ text-decoration:none;color:#a64e04;}
+a:hover{transition:color 200ms linear 0s,background-color 200ms linear 0s,border-color 200ms linear 0s;color:#faf803;}
+a:active{}	/*点击与释放时*/
+a:visited{}/* 访问过 */
+/*  - - - - - - - - - 常用类样式  - - - - - - - - -*/
+.photo img,.photo_fullsize img{display:block;width:100%;height:100%;}	/*图片全尺寸*/
+.no_bor{ border:none!important;}	/*无边框*/
+.no_bg{ background:none!important;}	/*无背景*/
+.clear{ display:block;height:0; line-height:0;overflow:hidden; clear:both;font-size:0;}/*清除浮动*/
+.clear_::after{content:"";display:block; clear:both;height:0; line-height:0; overflow:hidden;}/*清除浮动*/
+.center{margin:0 auto;width:1218px;}	/*让内容区块居中*/
+.flipx {
+    -moz-transform:scaleX(-1);
+    -webkit-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+}
+	/*窗口*/
+	*html{background-image:url(about:blank);background-attachment:fixed;}/*解决IE6下滚动抖动的问题*/
+	#window{width:100%;height:100%; position:fixed;top:0;left:0;background: url(../images/heibg.png) repeat left top;display:none;z-index:100000; _position:absolute;_top:expression(eval(document.documentElement.scrollTop));}
+	#float_window{position:absolute;top:50%;left:50%;padding:0px;z-index:20001;}
+	#float_window .closewindow{width:52px;background:url(../images/btn_close.png) no-repeat left bottom;height:52px;position:absolute;}
+	#float_window .closewindow:hover{background-position:left top;}
+	#video{width:850;height:600px;background:#000;}
+/*==============================================pulse==============================================*/
+.pulse {animation-name:pulse;-webkit-animation-name:pulse;animation-duration:1.5s;-webkit-animation-duration:1.5s;animation-iteration-count:infinite;-webkit-animation-iteration-count:infinite;}
+@keyframes pulse {0% {transform:scale(0.9);opacity:0.7;}
+50% {transform:scale(1);opacity:1;}
+100% {transform:scale(0.9);opacity:0.7;}
+}
+@-webkit-keyframes pulse {0% {-webkit-transform:scale(0.95);opacity:0.7;}
+50% {-webkit-transform:scale(1);opacity:1;}
+100% {-webkit-transform:scale(0.95);opacity:0.7;}
+}
+	.container1{width:617px;height:auto;margin:0 auto;}
+	.container1 .div_scroll{float:left;width:100%;height:289px;overflow:auto;}
+	.container1 .scroll_container{position:relative;overflow:hidden;}
+	.container1 .scroll_absolute{position:absolute;}
+	.container1 .scroll_vertical_bar{width:12px;height:100%;position:absolute;top:0;right:0;margin:0;padding:0;}
+	.container1 .scroll_track{position:relative;border-radius:10px;background:url(../images/line_y.gif) repeat-y center top;}
+	.container1 .scroll_drag{position:relative;top:0;left:0;border-top:none;border-bottom:none;cursor:pointer;background-color:#a18778;border-radius:20px;}
+	.container1 .scroll_arrow{text-indent:-20000px;cursor:pointer;display:block;}

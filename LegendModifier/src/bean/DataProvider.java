@@ -134,8 +134,6 @@ public class DataProvider {
 		list.add("雪域野人33");
 		list.add("雪域野人44");
 		list.add("五毒魔");//地图中存在的
-		list.add("巨镰蜘蛛");
-		list.add("恶魔蜘蛛");
 		list.add("暗之魔龙力士");
 		list.add("暗之魔龙力士1");
 		list.add("暗之魔龙力士2");
@@ -149,10 +147,7 @@ public class DataProvider {
 		list.add("暗之魔龙战将2");
 		list.add("暗之魔龙战将3");
 		list.add("狂热火蜥蜴");
-		list.add("圣殿卫士");
-		list.add("绿魔蜘蛛");
 		list.add("金刚护卫");
-		list.add("金杖蜘蛛");
 		list.add("牛魔王");
 		list.add("触龙神");
 		list.add("赤月恶魔");
@@ -194,7 +189,6 @@ public class DataProvider {
 		list.add("神之赤月恶魔");
 		list.add("嗜血爆龙");
 		list.add("嗜血教主");
-		list.add("圣殿护卫");
 		list.add("恶魔教主");
 		list.add("恶魔树妖");
 		list.add("暗影刀客");

@@ -15,7 +15,7 @@ public class Modifier {
 	private static String goodsFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/物品名称.txt";
 	private static String noRepeatgoodsFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/物品名称-不可重复.txt";
 	private static String mapDataFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/地图数据.txt";
-		
+	
 	public static void main(String[] args){
 //		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
 //		FileUtil.checkRepeatGoods(goodsFile,noRepeatgoodsFile,root);//检查爆率文件中是否存在重复的物品
@@ -31,22 +31,166 @@ public class Modifier {
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("星王",goodsFile);
-//		checkGoodsWhereBao("斗笠43号",root);//检查物品在哪爆	
+//		checkGoodsWhereBao("怒斩",root);//检查物品在哪爆	
 //		remindBaoLv(DataProvider.getBaoLvForBoss(),root);//设定暗之小怪、boos、大boos爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
 //		checkMonster("暗之",root);//检查怪物
+//		deleteContainer40LevelClothesMonster();//删除怪物中40级衣服
+//		deleteContainer42LevelClothesMonster();//删除怪物中42级衣服
 //		deleteNoContainerChiYueGoodsInfo();//删除不该包含赤月装备的怪物
 //		deleteNoContainerLeiTingGoodsInfo();//删除不该包含雷霆装备的怪物
 //		deleteNoContainerZhanShenXingWangGoodsInfo();//删除不该包含战神装备的怪物
 //		deleteContainerQiangHuaGoodsToMonster();//删除不该包含强化装备的怪物
+//		add40LevelClothesToMonster();//添加40级衣服到怪物中，六大暗之爆40级衣服
+//		add42LevelClothesToMonster();//添加42级衣服到怪物中
 //		addContainerQiangHuaGoodsToMonster();//添加强化装备到怪物中
 //		addContainerZhanShenGoodsToMonster();//添加战神装备到怪物中
 //		addContainerXingWangGoodsToMonster();//添加星王装备到怪物中
 //		remindAllBaolv(DataProvider.getBaolvRemindDataForLowZhuangBei(), root);//设定固有爆率(非顶级装备)
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率
-		
     }
 	
+	private static void add40LevelClothesToMonster() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> monster42 = DataProvider.getMonster42();
+		List<String> monster42ClothesList = DataProvider.getGoodsGrade().get("40clothes");
+		Map<String,Integer> baolvMap = DataProvider.getBaolvRemindDataForLowZhuangBei();
+		for(String monster:monsters){
+			if (isExsitIn4042Monster(monster,monster42)) {
+				String pathname= root+monster;
+				String content = FileUtil.getTxtFileContenet(pathname);
+				StringBuffer sb = new StringBuffer(content); 
+				for(String clothes:monster42ClothesList) {
+					String contents = "1/"+baolvMap.get(clothes)+" "+clothes+"\r\n";
+					sb.append(contents);
+					System.out.println(contents);
+				}
+				FileUtil.writeContent(root, monster, sb.toString());
+				System.out.println("写入成功：" + monster);
+			}
+		}
+	}
+
+	private static void add42LevelClothesToMonster() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> monster42 = DataProvider.getMonster42();
+		List<String> monster42ClothesList = DataProvider.getGoodsGrade().get("42clothes");
+		Map<String,Integer> baolvMap = DataProvider.getBaolvRemindDataForLowZhuangBei();
+		for(String monster:monsters){
+			if (isExsitIn4042Monster(monster,monster42)) {
+				String pathname= root+monster;
+				String content = FileUtil.getTxtFileContenet(pathname);
+				StringBuffer sb = new StringBuffer(content); 
+				for(String clothes:monster42ClothesList) {
+					String contents = "1/"+baolvMap.get(clothes)+" "+clothes+"\r\n";
+					sb.append(contents);
+					System.out.println(contents);
+				}
+				FileUtil.writeContent(root, monster, sb.toString());
+				System.out.println("写入成功：" + monster);
+			}
+		}
+	}
+
+	private static boolean isExsitIn4042Monster(String monster, List<String> list) {
+		for(String name:list) {
+			if(monster.contains(name)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	private static void deleteContainer40LevelClothesMonster() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		Map<String,List<String>> map = DataProvider.getGoodsGrade();
+		for(String monster:monsters){
+			if (monster.contains(".txt")) {
+				boolean isChanged = false;
+				String pathname= root+monster;
+				FileReader reader = null;
+		        BufferedReader br = null;
+		        StringBuffer sb = new StringBuffer();       
+		        try{
+		        	reader = new FileReader(pathname);
+		    		br = new BufferedReader(reader);
+		            String line;
+		            while ((line = br.readLine()) != null) {
+		            	if(!"".equals(line)&&isExsit40clothes(line, map)){
+		            		isChanged = true;
+		            		System.out.println(monster+"  "+line + "被替换");
+		            		sb.append("");
+		            	}else{
+		            		sb.append(line + "\r\n");
+		            	}
+		            }
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }finally{
+		        	try {
+		        		if (br!=null) {
+							br.close();
+						}
+						if(reader!=null){
+							reader.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+		        	if (isChanged) {
+						FileUtil.writeContent(root, monster, sb.toString());
+						System.out.println("写入成功：" + monster);
+					}
+		        }
+			}
+		}
+	}
+	
+	private static void deleteContainer42LevelClothesMonster() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		Map<String,List<String>> map = DataProvider.getGoodsGrade();
+		for(String monster:monsters){
+			if (monster.contains(".txt")) {
+				boolean isChanged = false;
+				String pathname= root+monster;
+				FileReader reader = null;
+		        BufferedReader br = null;
+		        StringBuffer sb = new StringBuffer();       
+		        try{
+		        	reader = new FileReader(pathname);
+		    		br = new BufferedReader(reader);
+		            String line;
+		            while ((line = br.readLine()) != null) {
+		            	if(!"".equals(line)&&isExsit42clothes(line, map)){
+		            		isChanged = true;
+		            		System.out.println(monster+"  "+line + "被替换");
+		            		sb.append("");
+		            	}else{
+		            		sb.append(line + "\r\n");
+		            	}
+		            }
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }finally{
+		        	try {
+		        		if (br!=null) {
+							br.close();
+						}
+						if(reader!=null){
+							reader.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+		        	if (isChanged) {
+						FileUtil.writeContent(root, monster, sb.toString());
+						System.out.println("写入成功：" + monster);
+					}
+		        }
+			}
+		}
+	}
+
 	private static void fixNoAutoNew() {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		for(String monster:monsters){
@@ -358,6 +502,26 @@ public class Modifier {
 		        }
 			}
 		}
+	}
+	
+	private static boolean isExsit42clothes(String line,Map<String,List<String>> map){
+		List<String> list = map.get("42clothes");
+		for(String goods:list){
+			if(line.contains(goods)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private static boolean isExsit40clothes(String line,Map<String,List<String>> map){
+		List<String> list = map.get("40clothes");
+		for(String goods:list){
+			if(line.contains(goods)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private static boolean isExsitLeiting(String line,Map<String,List<String>> map){

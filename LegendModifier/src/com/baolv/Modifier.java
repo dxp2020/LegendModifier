@@ -1,14 +1,13 @@
+package com.baolv;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import bean.DataProvider;
-import file.FileUtil;
+import com.baolv.bean.DataProvider;
+import com.baolv.util.FileUtil;
 
 public class Modifier {
 	private static String root = "F:/github/LegendModifier/LegendModifier/XingWangLegend/MonItems/MonItems/";

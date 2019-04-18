@@ -1,4 +1,4 @@
-package file;
+package com.baolv.util;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -92,9 +92,18 @@ public class FileUtil {
 	 * @param content
 	 */
 	public static void writeContent(String root,String fileName,String content) {
+		writeContent(root+fileName,content);
+	}
+	
+	/**
+	 * 往文件中写入内容
+	 * @param fileName
+	 * @param content
+	 */
+	public static void writeContent(String filePath,String content) {
         File file = null;
         FileWriter fw = null;
-        file = new File(root + fileName);
+        file = new File(filePath);
         try {
             if (!file.exists()) {
                 file.createNewFile();
@@ -102,9 +111,9 @@ public class FileUtil {
             fw = new FileWriter(file);
             fw.write(content);
             fw.flush();
-            System.out.println(fileName+"写入成功！");
+            System.out.println(filePath+"写入成功！");
         } catch (IOException e) {
-        	System.out.println(fileName+"写入失败！");
+        	System.out.println(filePath+"写入失败！");
             e.printStackTrace();
         }finally{
             if(fw != null){

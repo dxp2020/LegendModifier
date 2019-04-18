@@ -1,4 +1,4 @@
-package bean;
+package com.baolv.bean;
 
 public class GoodsInfo {
 	String gailv;//¸ÅÂÊ

@@ -1,4 +1,4 @@
-package bean;
+package com.baolv.bean;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -39,7 +39,6 @@ public class DataProvider {
 		list.add("绝命恶魔");
 		list.add("龍之金龙");
 		list.add("龍之天珠");
-		list.add("神之赤月恶魔");
 		list.add("嗜血爆龙");
 		list.add("嗜血教主");
 		list.add("雷炎神龙");

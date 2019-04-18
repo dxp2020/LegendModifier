@@ -10,10 +10,10 @@ import com.baolv.bean.DataProvider;
 import com.baolv.util.FileUtil;
 
 public class Modifier {
-	private static String root = "F:/github/LegendModifier/LegendModifier/XingWangLegend/MonItems/MonItems/";
-	private static String goodsFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/物品名称.txt";
-	private static String noRepeatgoodsFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/物品名称-不可重复.txt";
-	private static String mapDataFile = "F:/github/LegendModifier/LegendModifier/XingWangLegend/地图数据.txt";
+	private static String root = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/MonItems/MonItems/";
+	private static String goodsFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/物品名称.txt";
+	private static String noRepeatgoodsFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/物品名称-不可重复.txt";
+	private static String mapDataFile = "C:/Users/Administrator/git/repository/LegendModifier/XingWangLegend/地图数据.txt";
 	
 	public static void main(String[] args){
 //		FileUtil.errorRecovery(goodsFile,root);//检查爆率文件存在的格式错误
@@ -51,7 +51,7 @@ public class Modifier {
 	
 	private static void add40LevelClothesToMonster() {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
-		List<String> monster42 = DataProvider.getMonster42();
+		List<String> monster42 = DataProvider.getMonster40();
 		List<String> monster42ClothesList = DataProvider.getGoodsGrade().get("40clothes");
 		Map<String,Integer> baolvMap = DataProvider.getBaolvRemindDataForLowZhuangBei();
 		for(String monster:monsters){

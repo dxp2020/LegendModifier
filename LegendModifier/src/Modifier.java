@@ -31,16 +31,18 @@ public class Modifier {
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("星王",goodsFile);
-//		checkGoodsWhereBao("怒斩",root);//检查物品在哪爆	
+//		checkGoodsWhereBao("圣战",root);//检查物品在哪爆	
 //		remindBaoLv(DataProvider.getBaoLvForBoss(),root);//设定暗之小怪、boos、大boos爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
 //		checkMonster("暗之",root);//检查怪物
+//		deleteContainerZuMaMonter();//删除含有祖玛装备的怪物
 //		deleteContainer40LevelClothesMonster();//删除怪物中40级衣服
 //		deleteContainer42LevelClothesMonster();//删除怪物中42级衣服
 //		deleteNoContainerChiYueGoodsInfo();//删除不该包含赤月装备的怪物
 //		deleteNoContainerLeiTingGoodsInfo();//删除不该包含雷霆装备的怪物
 //		deleteNoContainerZhanShenXingWangGoodsInfo();//删除不该包含战神装备的怪物
 //		deleteContainerQiangHuaGoodsToMonster();//删除不该包含强化装备的怪物
+//		addZumaToMonster();//添加祖玛装备到怪物中
 //		add40LevelClothesToMonster();//添加40级衣服到怪物中，六大暗之爆40级衣服
 //		add42LevelClothesToMonster();//添加42级衣服到怪物中
 //		addContainerQiangHuaGoodsToMonster();//添加强化装备到怪物中
@@ -50,6 +52,79 @@ public class Modifier {
 //		remindAllBaolv(DataProvider.getBaolvRemindData(), root);//设定固有爆率
     }
 	
+	private static void addZumaToMonster() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		List<String> mContainerZuMa= DataProvider.getZuMaGuauWu();
+		Map<String,Integer> zuMaMap = DataProvider.getBaolvRemindDataForZuMa();
+		for(String monster:monsters){
+			String simpleMonster = monster.replace(".txt", "");
+			if(mContainerZuMa.contains(simpleMonster)){
+				boolean isChanged = false;
+				String pathname= root+monster;
+				String content = FileUtil.getTxtFileContenet(pathname);
+				StringBuffer sb = new StringBuffer(content);
+				for(String key:zuMaMap.keySet()){
+					if(!content.contains(key)){
+						isChanged = true;
+						Integer baolv = zuMaMap.get(key);
+						sb.append("1/"+baolv+" "+key+"\n");
+						
+						System.out.println(monster+" "+ "1/"+baolv+" "+key);
+					}
+				}
+		        if (isChanged) {
+					FileUtil.writeContent(root, monster, sb.toString());
+					System.out.println("写入成功：" + monster);
+				}
+			}
+		}
+	}
+
+	private static void deleteContainerZuMaMonter() {
+		String[] monsters = FileUtil.getDirectoryFileList(root);
+		Map<String,List<String>> map = DataProvider.getGoodsGrade();
+		for(String monster:monsters){
+			if (monster.contains(".txt")) {
+				boolean isChanged = false;
+				String pathname= root+monster;
+				FileReader reader = null;
+		        BufferedReader br = null;
+		        StringBuffer sb = new StringBuffer();       
+		        try{
+		        	reader = new FileReader(pathname);
+		    		br = new BufferedReader(reader);
+		            String line;
+		            while ((line = br.readLine()) != null) {
+		            	if(!"".equals(line)&&isExsitZumaGoods(line, map)){
+		            		isChanged = true;
+		            		System.out.println(monster+"  "+line + "被替换");
+		            		sb.append("");
+		            	}else{
+		            		sb.append(line + "\r\n");
+		            	}
+		            }
+		        } catch (IOException e) {
+		            e.printStackTrace();
+		        }finally{
+		        	try {
+		        		if (br!=null) {
+							br.close();
+						}
+						if(reader!=null){
+							reader.close();
+						}
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+		        	if (isChanged) {
+						FileUtil.writeContent(root, monster, sb.toString());
+						System.out.println("写入成功：" + monster);
+					}
+		        }
+			}
+		}
+	}
+
 	private static void add40LevelClothesToMonster() {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
 		List<String> monster42 = DataProvider.getMonster42();
@@ -280,7 +355,7 @@ public class Modifier {
 	
 	private static void deleteNoContainerChiYueGoodsInfo() {
 		String[] monsters = FileUtil.getDirectoryFileList(root);
-		List<String> mContainerZhanShen= DataProvider.getContainerXingWangMonster();
+		List<String> mContainerZhanShen= DataProvider.getNoContainerChiYueMonster();
 		Map<String,List<String>> map = DataProvider.getGoodsGrade();
 		for(String monster:monsters){
 			String simpleMonster = monster.replace(".txt", "");
@@ -506,6 +581,16 @@ public class Modifier {
 	
 	private static boolean isExsit42clothes(String line,Map<String,List<String>> map){
 		List<String> list = map.get("42clothes");
+		for(String goods:list){
+			if(line.contains(goods)){
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	private static boolean isExsitZumaGoods(String line,Map<String,List<String>> map){
+		List<String> list = map.get("zumaGoods");
 		for(String goods:list){
 			if(line.contains(goods)){
 				return true;

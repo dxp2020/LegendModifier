@@ -33,7 +33,7 @@ public class CustomerFilter {
             	if(!"".equals(line)) {
             		String[] arr = line.split(",");
             		if(arr.length>0&&arr[0].length()>=5){
-            			sb.append(arr[0]+"\r\n");
+            			sb.append(arr[0]+"@qq.com"+"\r\n");
             		}
             	}
             }

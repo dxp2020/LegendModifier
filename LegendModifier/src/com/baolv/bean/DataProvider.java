@@ -482,25 +482,25 @@ public class DataProvider {
 	
 	public static Map<String,Integer> getBaolvRemindDataForQiangHua(){
 		Map<String,Integer> map = new HashMap<String, Integer>();
-		map.put("强化雷霆护腕", 40);
-		map.put("强化雷霆战戒", 40);
-		map.put("强化雷霆战靴", 40);
-		map.put("强化雷霆腰带", 40);
-		map.put("强化烈焰护腕", 40);
-		map.put("强化烈焰魔戒", 40);
-		map.put("强化烈焰魔靴", 40);
-		map.put("强化烈焰腰带", 40);
-		map.put("强化光芒护腕", 40);
-		map.put("强化光芒道戒", 40);
-		map.put("强化光芒道靴", 40);
-		map.put("强化光芒腰带", 40);
+		map.put("强化雷霆护腕", 35);
+		map.put("强化雷霆战戒", 35);
+		map.put("强化雷霆战靴", 35);
+		map.put("强化雷霆腰带", 35);
+		map.put("强化烈焰护腕", 35);
+		map.put("强化烈焰魔戒", 35);
+		map.put("强化烈焰魔靴", 35);
+		map.put("强化烈焰腰带", 35);
+		map.put("强化光芒护腕", 35);
+		map.put("强化光芒道戒", 35);
+		map.put("强化光芒道靴", 35);
+		map.put("强化光芒腰带", 35);
 		
-		map.put("雷霆战甲(男)", 35);
-		map.put("雷霆战甲(女)", 35);
-		map.put("烈焰魔衣(男)", 35);
-		map.put("烈焰魔衣(女)", 35);
-		map.put("光芒道袍(男)", 35);
-		map.put("光芒道袍(女)", 35);
+		map.put("雷霆战甲(男)", 25);
+		map.put("雷霆战甲(女)", 25);
+		map.put("烈焰魔衣(男)", 25);
+		map.put("烈焰魔衣(女)", 25);
+		map.put("光芒道袍(男)", 25);
+		map.put("光芒道袍(女)", 25);
 		
 		map.put("圣龙盔", 35);
 		map.put("魔龙盔", 35);
@@ -514,28 +514,28 @@ public class DataProvider {
 	
 	public static Map<String,Integer> getBaolvRemindDataForZhanShen(){
 		Map<String,Integer> map = new HashMap<String, Integer>();
-		map.put("战神项链", 40);
-		map.put("战神手镯", 40);
-		map.put("战神戒指", 40);
-		map.put("圣魔项链", 40);
-		map.put("圣魔手镯", 40);
-		map.put("圣魔戒指", 40);
-		map.put("真魂项链", 40);
-		map.put("真魂手镯", 40);
-		map.put("真魂戒指", 40);
-		map.put("战神头盔", 40);
-		map.put("圣魔头盔", 40);
-		map.put("真魂头盔", 40);
-		map.put("战神圣靴", 40);
-		map.put("战神腰带", 40);
-		map.put("圣魔法靴", 40);
-		map.put("圣魔腰带", 40);
-		map.put("真魂道靴", 40);
-		map.put("真魂腰带", 40);
+		map.put("战神项链", 35);
+		map.put("战神手镯", 35);
+		map.put("战神戒指", 35);
+		map.put("圣魔项链", 35);
+		map.put("圣魔手镯", 35);
+		map.put("圣魔戒指", 35);
+		map.put("真魂项链", 35);
+		map.put("真魂手镯", 35);
+		map.put("真魂戒指", 35);
+		map.put("战神头盔", 35);
+		map.put("圣魔头盔", 35);
+		map.put("真魂头盔", 35);
+		map.put("战神圣靴", 35);
+		map.put("战神腰带", 35);
+		map.put("圣魔法靴", 35);
+		map.put("圣魔腰带", 35);
+		map.put("真魂道靴", 35);
+		map.put("真魂腰带", 35);
 		
-		map.put("屠龙", 40);
-		map.put("嗜魂法杖", 40);
-		map.put("霸者之刃", 40);
+		map.put("屠龙", 35);
+		map.put("嗜魂法杖", 35);
+		map.put("霸者之刃", 35);
 		return map;
 	}
 	
@@ -576,32 +576,32 @@ public class DataProvider {
 		map.put("天尊手镯", 20);
 		map.put("天尊戒指", 20);
 		
-		map.put("天魔神甲", 20);
-		map.put("圣战宝甲", 20);
-		map.put("法神披风", 20);
-		map.put("霓裳羽衣", 20);
-		map.put("天尊道袍", 20);
-		map.put("天师长袍", 20);
+		map.put("天魔神甲", 15);
+		map.put("圣战宝甲", 15);
+		map.put("法神披风", 15);
+		map.put("霓裳羽衣", 15);
+		map.put("天尊道袍", 15);
+		map.put("天师长袍", 15);
 		
-		map.put("雷霆项链", 30);
-		map.put("雷霆护腕", 30);
-		map.put("雷霆战戒", 30);
-		map.put("雷霆战靴", 30);
-		map.put("雷霆腰带", 30);
-		map.put("烈焰项链", 30);
-		map.put("烈焰护腕", 30);
-		map.put("烈焰魔戒", 30);
-		map.put("烈焰魔靴", 30);
-		map.put("烈焰腰带", 30);
-		map.put("光芒项链", 30);
-		map.put("光芒护腕", 30);
-		map.put("光芒道戒", 30);
-		map.put("光芒道靴", 30);
-		map.put("光芒腰带", 30);
+		map.put("雷霆项链", 25);
+		map.put("雷霆护腕", 25);
+		map.put("雷霆战戒", 25);
+		map.put("雷霆战靴", 25);
+		map.put("雷霆腰带", 25);
+		map.put("烈焰项链", 25);
+		map.put("烈焰护腕", 25);
+		map.put("烈焰魔戒", 25);
+		map.put("烈焰魔靴", 25);
+		map.put("烈焰腰带", 25);
+		map.put("光芒项链", 25);
+		map.put("光芒护腕", 25);
+		map.put("光芒道戒", 25);
+		map.put("光芒道靴", 25);
+		map.put("光芒腰带", 25);
 		
-		map.put("荣誉勋章43号", 30);
-		map.put("荣誉勋章44号", 30);
-		map.put("荣誉勋章45号", 30);
+		map.put("荣誉勋章43号", 40);
+		map.put("荣誉勋章44号", 40);
+		map.put("荣誉勋章45号", 40);
 		
 		Map<String,Integer> qiangHuaMap =getBaolvRemindDataForQiangHua();
 		for(String key:qiangHuaMap.keySet()){
@@ -628,23 +628,23 @@ public class DataProvider {
 	
 	public static Map<String,Integer> getBaolvRemindData(){
 		Map<String,Integer> map = new HashMap<String, Integer>();
-		map.put("星王神甲", 1600);
-		map.put("星王神衣", 1600);
-		map.put("星王战刃", 1600);
-		map.put("星王道刃", 1400);
-		map.put("星王法刃", 1000);
+		map.put("星王神甲", 1200);
+		map.put("星王神衣", 1200);
+		map.put("星王战刃", 1200);
+		map.put("星王道刃", 800);
+		map.put("星王法刃", 600);
 		
-		map.put("开天", 800);
-		map.put("玄天", 500);
-		map.put("镇天", 300);
+		map.put("开天", 400);
+		map.put("玄天", 300);
+		map.put("镇天", 200);
 		
-		map.put("黄金勋章", 200);
-		map.put("黄金斗笠", 200);
-		map.put("白银勋章", 80);
-		map.put("白银斗笠", 80);
+		map.put("黄金勋章", 100);
+		map.put("黄金斗笠", 100);
+		map.put("白银勋章", 60);
+		map.put("白银斗笠", 60);
 		
-		map.put("凤天魔甲", 600);
-		map.put("凰天魔衣", 600);
+		map.put("凤天魔甲", 400);
+		map.put("凰天魔衣", 400);
 		
 		map.put("星王战镯", 100);
 		map.put("星王战戒", 100);
@@ -702,6 +702,15 @@ public class DataProvider {
 		list.add("雷炎蛛王");
 		list.add("王者教主");
 		list.add("赤月恶魔");
+		list.add("暗之双头血魔");
+		list.add("暗之双头金刚");
+		list.add("暗之沃玛教主");
+		list.add("暗之牛魔王");
+		list.add("暗之虹魔教主");
+		list.add("暗之触龙神");
+		list.add("暗之赤月恶魔");
+		list.add("暗之魔龙教主");
+		list.add("暗之黄泉教主");
 		return list;
 	}
 	
@@ -713,6 +722,16 @@ public class DataProvider {
 		list.add("骷髅精灵");
 		list.add("沃玛教主");
 		list.add("虹魔教主");
+		list.add("赤月恶魔");
+		list.add("暗之双头血魔");
+		list.add("暗之双头金刚");
+		list.add("暗之沃玛教主");
+		list.add("暗之牛魔王");
+		list.add("暗之虹魔教主");
+		list.add("暗之触龙神");
+		list.add("暗之赤月恶魔");
+		list.add("暗之魔龙教主");
+		list.add("暗之黄泉教主");
 		return list;
 	}
 }

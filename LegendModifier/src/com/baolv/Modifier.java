@@ -3,8 +3,6 @@ package com.baolv;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +32,7 @@ public class Modifier {
 //		genarateMonsterNameSQL();//生成怪物名称sql
 //		deleteMonster(root,"地煞");
 //		checkGoods("星王",goodsFile);
-//		checkGoodsWhereBao("====",root);//检查物品在哪爆	
+//		checkGoodsWhereBao("龙牙",root);//检查物品在哪爆	
 //		remindBaoLv(DataProvider.getBaoLvForBoss(),root);//设定暗之小怪、boos、大boos爆率
 //		addGoods("星王战戒","白银勋章",200);//添加物品
 //		checkMonster("暗之",root);//检查怪物

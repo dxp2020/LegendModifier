@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CustomerFilter {
-	private static String root = "C:/Users/Administrator/git/repository/LegendModifier/Marketing/";
+	private static String root = "F:/github/LegendModifier/LegendModifier/Marketing/";
 	private static String fileName = "customer.txt";
 	
 	public static void main(String[] args) {
@@ -24,7 +24,9 @@ public class CustomerFilter {
 	private static void generateUserQQ(String newName){
 		FileReader reader = null;
         BufferedReader br = null;
-        StringBuffer sb = new StringBuffer();       
+        StringBuffer sb = new StringBuffer();     
+        int nums = 0;
+        int count = 0;
         try{
         	reader = new FileReader(root+newName);
     		br = new BufferedReader(reader);
@@ -34,6 +36,13 @@ public class CustomerFilter {
             		String[] arr = line.split(",");
             		if(arr.length>0&&arr[0].length()>=5){
             			sb.append(arr[0]+"@qq.com"+"\r\n");
+            			count++;
+            			if(count==50) {
+            				nums++;
+            				count=0;
+            				writeContent(root+"QQ"+nums+"_"+newName, sb.toString());
+            				sb.delete(0, sb.toString().length());
+            			}
             		}
             	}
             }
@@ -50,7 +59,10 @@ public class CustomerFilter {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-        	writeContent(root+"QQ_"+newName, sb.toString());
+        	if(count>0) {
+        		nums++;
+        		writeContent(root+"QQ"+nums+"_"+newName, sb.toString());
+        	}
         }
 	}
 	
